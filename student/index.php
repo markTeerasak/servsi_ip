@@ -1,5 +1,9 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT");
+header("Access-Control-Allow-Headers: Content-Type"); 
+
 require_once "../connect.php";
 
 $sql = "SELECT * FROM student";
@@ -19,6 +23,5 @@ if(count($result)){
     http_response_code(404);
     echo json_encode(array('status' => false));
 }
-
 
 ?>

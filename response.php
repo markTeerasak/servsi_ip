@@ -3,7 +3,7 @@ class Response {
     public  function success( $result = [], $message ='success', $code = 200 ){
         $response = array(
             'status' => true,
-            'respoint' => $result,
+            'response' => $result,
             'message' => $message
         );
         http_response_code($code);
