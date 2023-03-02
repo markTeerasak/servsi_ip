@@ -11,9 +11,10 @@ $response = new Response();
 
 $params = array(
     'id' => $_GET['id'],
+    'room' => $_GET['room'],
 );
 
-$sql = "SELECT * FROM student INNER JOIN student_has_class ON student.student_id = student_has_class.student_id WHERE student.student_id = :id AND student_has_class.school_year = '2019' ";
+$sql = "SELECT * FROM time_table WHERE grade = :id AND room = :room";
 $statement = $conn->prepare($sql);
 $statement->execute($params);
 
