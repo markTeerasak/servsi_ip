@@ -11,10 +11,9 @@ $response = new Response();
 
 $params = array(
     'id' => $_GET['id'],
-    'room' => $_GET['room'],
 );
 
-$sql = "SELECT * FROM time_table JOIN enroll_subject ON time_table.enroll_subject_id = enroll_subject.enroll_subject_id WHERE grade = :id AND room = :room";
+$sql = "SELECT * FROM work JOIN enroll_subject ON work.enroll_subject_id = enroll_subject.enroll_subject_id JOIN enroll ON enroll_subject.enroll_subject_id = enroll.enroll_subject_id JOIN subject ON enroll_subject.subject_id = subject.subject_id WHERE enroll.student_id = :id";
 $statement = $conn->prepare($sql);
 $statement->execute($params);
 
